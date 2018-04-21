@@ -1,0 +1,41 @@
+[user]
+	name = Benjamin Bengfort
+	email = benjamin@bengfort.com
+
+[github]
+	user = bbengfort
+
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+
+[color]
+	ui = auto
+
+[credential]
+	helper = osxkeychain
+
+[diff]
+	external = ~/bin/godiff.sh
+
+[push]
+	default = simple
+	followTags = true
+
+[help]
+	autocorrect = 1
+
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
