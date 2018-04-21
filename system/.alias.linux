@@ -1,0 +1,22 @@
+# Directory listing
+alias ls="ls -C --color=auto"
+alias ll="ls -lhF"
+alias la="ls -lhFA"
+alias ld="ls -d"
+alias fhere="find . -name "
+
+# Update Ubuntu
+alias update="sudo apt-get autoremove && sudo apt-get update && sudo apt-get upgrade"
+
+# Memory and disk management
+alias df="df -Tha --total"
+alias du="du -hs"
+alias free="free -mt"
+
+# Process and activities
+alias ps="ps auxf"
+alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias top="htop"
+
+# Miscellaneous
+alias codetime="clock.py code"

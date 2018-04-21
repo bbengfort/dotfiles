@@ -15,5 +15,17 @@ if is-executable git -a -d "$DOTFILES_DIR/.git"; then
 fi
 
 # Symlinks and configurations
+ln -sfv "$DOTFILES_DIR/runcom/.bash_profile" ~
+ln -sfv "$DOTFILES_DIR/runcom/.inputrc" ~
+ln -sfv "$DOTFILES_DIR/runcom/.vimrc" ~
 ln -sfv "$DOTFILES_DIR/git/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
+
+# Package managers & packages
+. "$DOTFILES_DIR/install/brew.sh"
+. "$DOTFILES_DIR/install/bash.sh"
+
+# Install extra stuff
+if [ -d "$DOTFILES_EXTRA_DIR" -a -f "$DOTFILES_EXTRA_DIR/install.sh" ]; then
+  . "$DOTFILES_EXTRA_DIR/install.sh"
+fi

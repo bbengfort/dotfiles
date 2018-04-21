@@ -1,0 +1,40 @@
+# Shortcuts
+alias reload="source ~/.bash_profile"
+
+# Navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias -- --="cd -"                 # Go to previous dir with -
+alias cd.='cd $(readlink -f .)'    # Go to real dir (i.e. if current dir is linked)
+
+# Default options
+alias rsync="rsync -vh"
+alias tree="tree -AC"
+
+# Print tree helpers
+alias treed="tree -d"
+alias tree1="tree -d -L 1"
+alias tree2="tree -d -L 2"
+
+# List aliases, functions, paths
+alias aliases="alias | sed 's/=.*//'"
+alias functions="declare -f | grep '^[a-z].* ()' | sed 's/{$//'"
+alias paths='echo -e ${PATH//:/\\n}'
+
+# Time helpers
+alias ts="date +%FT%H:%M:%S"
+alias week="date +%V"
+
+# Network helpers
+alias myip="curl http://ipecho.net/plain; echo"
+alias localip="ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'"
+alias ipg="myip"
+alias ipl="localip"
+
+# Miscellaneous
+alias quit="exit"
+
+# Move to functions?
+alias get_python_lib="python -c 'from distutils.sysconfig import get_python_lib; print(get_python_lib());'"
+alias pytzg="python -c 'import pytz; print(\"\n\".join(pytz.common_timezones));' | grep -i"
