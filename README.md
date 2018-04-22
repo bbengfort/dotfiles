@@ -13,6 +13,8 @@ $ sudo softwareupdate -i -a
 $ xcode-select --install
 ```
 
+(No additional preparation is required on Ubuntu).
+
 Then clone the repository into `~/.dotfiles` and run the install script:
 
 ```
@@ -21,6 +23,14 @@ $ source ~/.dotfiles/install.sh
 ```
 
 The install script essentially creates symlinks from the dotfiles repo to expected configuration locations then runs a series of installation scripts that use [Homebrew](https://brew.sh/) to ensure the correct applications are installed.
+
+On macOS you can restore application and private configuration using Mackup:
+
+```
+$ mackup restore
+```
+
+This will symlink files from dropbox into their correct configuration locations.
 
 ## Organization
 

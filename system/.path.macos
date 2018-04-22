@@ -1,2 +1,0 @@
-# Add the rbenv shim 
-prepend-path "$HOME/.rbenv/bin"

@@ -1,3 +1,10 @@
+# if running bash include .bashrc if it exists
+if [ -n "$BASH_VERSION" ]; then
+    if [ -f "$HOME/.bashrc" ]; then
+	     . "$HOME/.bashrc"
+    fi
+fi
+
 # Resolve DOTFILES_DIR (assuming ~/.dotfiles without readlink or $BASH_SOURCE/$0)
 READLINK=$(which greadlink || which readlink)
 CURRENT_SCRIPT=$BASH_SOURCE

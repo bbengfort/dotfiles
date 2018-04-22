@@ -1,3 +1,7 @@
+# This file sets up the base $PATH and is not typically used for adding
+# paths for applications, make sure you check the .env files for other
+# possible $PATH modifications. 
+
 # Prepend items to path (if directory exists)
 prepend-path "/bin"
 prepend-path "/usr/bin"

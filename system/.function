@@ -1,3 +1,18 @@
+# Switch long/short prompts
+ps0() {
+  unset PROMPT_COMMAND
+  PS1='$ '
+}
+
+ps1() {
+  source "$DOTFILES_DIR"/system/.prompt
+}
+
+# Get named var (usage: get "VAR_NAME")
+getenv() {
+  echo "${!1}"
+}
+
 # Modify $PATH
 prepend-path() {
   [ -d $1 ] && PATH="$1:$PATH"
@@ -5,4 +20,25 @@ prepend-path() {
 
 append-path() {
   [ -d $1 ] && PATH=$PATH:"$1"
+}
+
+# Calculator
+calc() {
+  echo "$*" | bc -l;
+}
+
+# Lat/Lon
+coords() {
+  echo `curl -s ipinfo.io/loc`
+}
+
+# Weather
+meteo() {
+  local LOCALE=`echo ${LANG:-en} | cut -c1-2`
+  if [ $# -eq 0 ]; then
+    local LOCATION=`curl -s ipinfo.io/loc`
+  else
+    local LOCATION=$1
+  fi
+  curl -s "$LOCALE.wttr.in/$LOCATION"
 }
