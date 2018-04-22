@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/Users/benjamin/Repos/go/src/github.com/bbengfort/aliahc/fixtures/results/logtp/data/hyperion-hdd'
+let g:netrw_dirhist_2='/Users/benjamin/Repos/go/src/github.com/bbengfort/aliahc/fixtures/results/logtp/data/hyperion-ssd'
+let g:netrw_dirhist_3='/Users/benjamin/Workspace/go/src/github.com/bbengfort/aliahc/fixtures/cluster/foxtrot'
+let g:netrw_dirhist_4='/Users/benjamin/Workspace/git/rpctp/fixtures/umd'
+let g:netrw_dirhist_5='/Users/benjamin/.pyenv/versions'
+let g:netrw_dirhist_6='/Users/benjamin/Workspace/ddl/yellowbrick'
