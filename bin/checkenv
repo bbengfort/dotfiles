@@ -1,0 +1,186 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# checkenv
+# checks the environment for required configuration
+
+##########################################################################
+## Imports
+##########################################################################
+
+import os
+import argparse
+
+try:
+    import colorama
+except ImportError:
+    colorama = None
+
+try:
+    import tabulate
+except ImportError:
+    tabulate = None
+
+
+##########################################################################
+## Environments
+##########################################################################
+
+ENVIRONMENTS = {
+    "all": [],
+    "aws": [
+        "AWS_ACCESS_KEY_ID",
+        "AWS_SECRET_ACCESS_KEY",
+        "AWS_REGION",
+    ],
+    "github": [
+        "GITHUB_TOKEN",
+    ],
+    "go": [
+        "GOPATH",
+        "GOBIN",
+    ],
+    "jvm": [
+        "JAVA_HOME",
+        "SCALA_HOME",
+        "CLASSPATH",
+    ],
+    "kahu": [
+        "KEKAHU_API_KEY",
+        "KEKAHU_URL",
+    ],
+    "make": [
+        "ARCHFLAGS",
+        "CFLAGS",
+        "LDFLAGS",
+        "PYTHON_CONFIGURE_OPTS",
+    ],
+    "nltk": [
+        "NLTK_DATA",
+        "CORPUS_HOME",
+    ],
+    "notify": [
+        "EMAIL_USERNAME",
+        "EMAIL_PASSWORD",
+        "EMAIL_HOST",
+        "EMAIL_PORT",
+        "EMAIL_FAIL_SILENT",
+    ],
+    "postgres": [
+        "DATABASE_URL",
+    ],
+    "python": [
+        "PYENV_VERSION",
+    ],
+    "spark": [
+        "SPARK_HOME",
+        "PYSPARK_SUBMIT_ARGS",
+        "PYSPARK_DRIVER_PYTHON",
+        "PYSPARK_DRIVER_PYTHON_OPTS",
+    ],
+    "system": [
+        "EDITOR",
+    ],
+    "venv": [
+        "VIRTUALENVWRAPPER_PYTHON",
+        "WORKON_HOME",
+        "PROJECT_HOME",
+    ],
+}
+
+
+##########################################################################
+## Helper Functions
+##########################################################################
+
+def colorize(string, color, *args, **kwargs):
+    """
+    Implements string formatting along with color specified in colorama.Fore
+    """
+    string = string.format(*args, **kwargs)
+
+    if colorama is not None:
+        color = getattr(colorama.Fore, color)
+        string = color + string + colorama.Fore.RESET
+
+    return string
+
+
+CHECK = colorize(u"✓", "GREEN")
+CROSS = colorize(u"✗", "RED")
+
+
+def checkenv(key, value=False, bool=True, group=None):
+    check = True if bool else CHECK
+    cross = False if bool else CROSS
+
+    if key in os.environ:
+        if value:
+            return check, key, os.environ[key], group
+        return check, key, group
+
+    if value:
+        return cross, key, "", group
+    return cross, key, group
+
+
+def print_table(table, show=False):
+    if tabulate is not None:
+        if args.show:
+            table.insert(0, ["?", "Key", "Value", "Group"])
+        else:
+            table.insert(0, ["?", "Key", "Group"])
+
+        print(tabulate.tabulate(
+            table, tablefmt="simple", headers="firstrow"
+        ))
+
+    else:
+        fmt = "{0} {1} ({3}) = {2}" if args.show else "{} {} ({})"
+        for row in table:
+            print(fmt.format(*row))
+
+
+##########################################################################
+## Main Method
+##########################################################################
+
+def main(args):
+    """
+    For each specified environment, check environment variables are set.
+    """
+    envs = list(ENVIRONMENTS.keys()) if "all" in args.env else args.env
+    table = [
+        checkenv(key, value=args.show, bool=False, group=env)
+        for env in envs
+        for key in ENVIRONMENTS[env]
+    ]
+    print_table(table, show=args.show)
+
+
+
+if __name__ == '__main__':
+    # Create the argument parser, parse args and run main
+    parser = argparse.ArgumentParser(
+        description="checks the environment for required configuration"
+    )
+
+    args = {
+        ("-s", "--show"): {
+            "action": "store_true",
+            "help": "display the configurated values if present"
+        },
+        "env": {
+            "choices": ENVIRONMENTS.keys(),
+            "nargs": "*",
+            "default": "all",
+            "help": "specify the environment to check configuration of"
+        }
+    }
+
+    for pargs, kwargs in args.items():
+        if not isinstance(pargs, tuple):
+            pargs = (pargs,)
+        parser.add_argument(*pargs, **kwargs)
+
+    args = parser.parse_args()
+    main(args)

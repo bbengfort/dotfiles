@@ -1,0 +1,85 @@
+#!/usr/bin/env bash
+
+BIN_NAME=$(basename "$0")
+COMMAND_NAME=$1
+SUB_COMMAND_NAME=$2
+
+sub_help () {
+  echo "Usage: $BIN_NAME <command>"
+  echo
+  echo "Commands:"
+  echo "   clean            Clean up caches"
+  echo "   dock             Apply macOS Dock settings"
+  echo "   edit             Open dotfiles in editor"
+  echo "   help             This help message"
+  echo "   macos            Apply macOS system defaults"
+  echo "   ubuntu           Apply Ubuntu system defaults"
+  echo "   update           Update packages and pkg managers (OS, brew, apt, etc.)"
+}
+
+sub_update () {
+  if is-macos; then
+    sudo softwareupdate -i -a
+    brew update
+    brew upgrade
+  fi
+
+  if is-linux; then
+    sudo apt-get autoremove && sudo apt-get update && sudo apt-get upgrade
+  fi
+}
+
+sub_clean() {
+  if is-macos; then
+    brew cleanup
+    brew cask cleanup
+    echo "macOS package manager caches cleaned"
+  fi
+
+  if is-linux; then
+    sudo apt-get autoremove
+    sudo apt-get clean
+    echo "Ubuntu package manager caches cleaned"
+  fi
+}
+
+sub_edit () {
+  if is-executable atom; then
+    sh -c "atom $DOTFILES_DIR"
+  else
+    echo "no editor available, edit files in $DOTFILES_DIR"
+  fi
+}
+
+sub_macos () {
+  for DEFAULTS_FILE in "${DOTFILES_DIR}"/macos/defaults*.sh; do
+    echo "Applying ${DEFAULTS_FILE}" && . "${DEFAULTS_FILE}"
+  done
+  echo "Done. Some changes may require a logout/restart to take effect."
+}
+
+sub_dock () {
+  . "${DOTFILES_DIR}/macos/dock.sh" && echo "Dock reloaded."
+}
+
+sub_ubuntu () {
+  for DEFAULTS_FILE in "${DOTFILES_DIR}"/ubuntu/defaults*.sh; do
+    echo "Applying ${DEFAULTS_FILE}" && . "${DEFAULTS_FILE}"
+  done
+  echo "Done. Some changes may require a logout/restart to take effect."
+}
+
+case $COMMAND_NAME in
+  "" | "-h" | "--help")
+    sub_help
+    ;;
+  *)
+    shift
+    sub_${COMMAND_NAME} $@
+    if [ $? = 127 ]; then
+      echo "'$COMMAND_NAME' is not a known command or has errors." >&2
+      sub_help
+      exit 1
+    fi
+    ;;
+esac

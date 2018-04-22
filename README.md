@@ -43,6 +43,7 @@ The organization of the dotfiles repository has evolved over time, but basically
 - `macos`: contains macOS defaults and configuration
 - `runcom`: [run commands](https://en.wikipedia.org/wiki/Run_commands), primary entry point dotfiles.
 - `system`: contains sub configurations on a per-system basis
+- `ubuntu`: contains Ubuntu defaults and configurations
 - `vim`: contains configurations and files for vim
 
 ### Tools
@@ -69,6 +70,8 @@ This section contains a (possibly not up-to-date) description of the tools insta
 - [coreutils](https://www.gnu.org/software/coreutils/coreutils.html): GNU versions of core utilities.  
 - [ERAlchemy](https://github.com/Alexis-benoist/eralchemy): generates Entity Relation (ER) diagrams from databases or from SQLAlchemy models.
 - [wifi-password](https://github.com/rauchg/wifi-password): get the currently connected WiFi password quickly from the terminal.
+- [Quick Look plugins](https://github.com/sindresorhus/quick-look-plugins): useful plugins for making Quick Look more effective
+- [macOS Apps](install/cask.sh)
 
 #### Ubuntu
 

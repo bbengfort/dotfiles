@@ -86,7 +86,7 @@ bash_prompt_command() {
 
   # Exit code
   if [[ $EXIT_CODE != 0 ]]; then
-    P_EXIT+="${P_RED}⚠ "
+    P_EXIT+="${P_RED}● "
   fi
 
   PS1="${P_EXIT}${P_USER}${P_WHITE}@${P_HOST} ${P_WHITE}${P_PWD}${P_BLUE}${P_GIT}${P_WHITE} ♠ ${P_RESET}"

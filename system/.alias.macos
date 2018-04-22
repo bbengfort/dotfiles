@@ -20,9 +20,9 @@ alias afk="/System/Library/CoreServices/ScreenSaverEngine.app/Contents/MacOS/Scr
 alias logoff="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # Miscelaneous
-alias ql="qlmanage -p &>/dev/null"      # Quick-look preview files
-alias codetime="clock.py code | pbcopy" # Copy timestamp to clipboard
-alias cpwd="pwd|tr -d '\n'|pbcopy"      # Copy pwd to clipboard
+alias ql="qlmanage -p "$@" >& /dev/null"  # Quick-look preview files
+alias codetime="clock.py code | pbcopy"   # Copy timestamp to clipboard
+alias cpwd="pwd|tr -d '\n'|pbcopy"        # Copy pwd to clipboard
 
 # Recursively remove Apple meta files
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -exec /bin/rm {} \;"

@@ -32,3 +32,7 @@ apps=(
 # trash-me
 
 brew cask install "${apps[@]}"
+
+# Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
+# Note these currently break the ql function (https://github.com/toland/qlmarkdown/issues/79)
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook suspicious-package quicklookase qlvideo
