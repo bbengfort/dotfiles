@@ -24,6 +24,7 @@ ln -sfv "$DOTFILES_DIR/vim" ~/.vim
 
 # Package managers & packages
 . "$DOTFILES_DIR/install/brew.sh"
+#. "$DOTFILES_DIR/install/cask.sh"
 . "$DOTFILES_DIR/install/bash.sh"
 . "$DOTFILES_DIR/install/apt.sh"
 
