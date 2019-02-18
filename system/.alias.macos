@@ -7,7 +7,7 @@ alias ld="ls -d"
 # Editing files
 alias vim="mvim"
 alias vi="/usr/bin/vim"
-alias e="atom . &"
+alias e="code . &"
 
 # Better compression
 alias zip="zip -x *.DS_Store -x *__MACOSX* -x *.AppleDouble*"
@@ -37,3 +37,6 @@ alias killfinder="killall Finder"
 alias killdock="killall Dock"
 alias killmenubar="killall SystemUIServer NotificationCenter"
 alias killos="killfinder && killdock && killmenubar"
+
+# Brew Travis
+alias travis="/usr/local/lib/ruby/gems/2.6.0/bin/travis"

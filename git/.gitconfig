@@ -1,12 +1,16 @@
 [user]
 	name = Benjamin Bengfort
 	email = benjamin@bengfort.com
+	signingKey = 78A2DCBFA18B6D649A889AE76737E124F0D6AB12
 
 [github]
 	user = bbengfort
 
+[bitbucket]
+    user = bengfort
+
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesFile = ~/.gitignore_global
 	editor = vim
 
 [color]
@@ -39,3 +43,7 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	required = true
+[log]
+	abbrevCommit = true
+[commit]
+	gpgSign = true
