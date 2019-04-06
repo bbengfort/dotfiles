@@ -19,15 +19,30 @@
 [credential]
 	helper = osxkeychain
 
-[diff]
-	external = ~/bin/godiff.sh
-
 [push]
 	default = simple
 	followTags = true
 
 [help]
 	autocorrect = 1
+
+[diff]
+    tool = Kaleidoscope
+
+[difftool "Kaleidoscope"]
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[difftool]
+    prompt = false
+
+[merge]
+    tool = Kaleidoscope
+
+[mergetool "Kaleidoscope"]
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" \"$REMOTE\"
+
+[mergetool]
+    prompt = false
 
 [filter "media"]
 	required = true
