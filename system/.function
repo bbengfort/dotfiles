@@ -1,3 +1,17 @@
+# List all functions that are not prefixed by an underscore
+funcs() {
+  OUTPUT=""
+  while read -r line; do
+    if [[ ! $line = \_* ]]; then
+      OUTPUT="$OUTPUT\n$line"
+    fi
+  done <<< $(compgen -a -A function)
+  OUTPUT="$OUTPUT\n"
+  echo -ne $OUTPUT | column
+  echo ''
+  echo 'use type <func> to display the function'
+}
+
 # Switch long/short prompts
 ps0() {
   unset PROMPT_COMMAND

@@ -2,3 +2,14 @@
 manpdf() {
   man -t "$1" | open -f -a /Applications/Preview.app/
 }
+
+# Set the build environment, especially for compiling Python
+buildenv() {
+  BREW_PREFIXES=$(brew --prefix openssl zlib sqlite readline)
+  while read -r PREFIX; do
+      export CFLAGS="${CFLAGS} -I$PREFIX/include"
+      export CPPFLAGS="${CPPFLAGS} -I$PREFIX/include"
+      export LDFLAGS="${LDFLAGS} -L$PREFIX/lib"
+      export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} -L$PREFIX/lib/pkgconfig"
+  done <<< $BREW_PREFIXES
+}

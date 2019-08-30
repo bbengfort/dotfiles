@@ -58,7 +58,9 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	required = true
+
 [log]
-	abbrevCommit = true
+    abbrevCommit = true
+
 [commit]
 	gpgSign = true

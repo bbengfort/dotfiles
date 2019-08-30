@@ -1,6 +1,7 @@
 # Python Stuff
 __pycache__/
 *.py[cod]
+.python-version
 
 # OSX Stuff
 .DS_Store
@@ -8,3 +9,6 @@ __pycache__/
 
 # Vim stuff
 *.swp
+
+# VSCode stuff
+.vscode
