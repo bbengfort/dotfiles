@@ -36,6 +36,7 @@ apps=(
   shellcheck
   tree
   wifi-password
+  tmux
 )
 
 brew install "${apps[@]}"
@@ -44,5 +45,5 @@ brew install "${apps[@]}"
 export DOTFILES_BREW_PREFIX_COREUTILS=`brew --prefix coreutils`
 set-config "DOTFILES_BREW_PREFIX_COREUTILS" "$DOTFILES_BREW_PREFIX_COREUTILS" "$DOTFILES_CACHE"
 
-# Export macOS specific configurations 
+# Export macOS specific configurations
 ln -sfv "$DOTFILES_DIR/etc/mackup/.mackup.cfg" ~

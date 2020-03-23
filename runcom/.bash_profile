@@ -46,6 +46,7 @@ if is-linux; then
 fi
 
 # Hook for extra/secure stuff
+# NOTE: work stuf (e.g. pgenv) is also here
 DOTFILES_EXTRA_DIR="$HOME/.extra"
 
 if [ -d "$DOTFILES_EXTRA_DIR" ]; then
