@@ -4,6 +4,8 @@ alias ll="ls -lhF"
 alias la="ls -lhFA"
 alias ld="ls -d"
 alias fhere="find . -name "
+alias open="xdg-open"
+alias e="code . &"
 
 # Update Ubuntu
 alias update="sudo apt autoremove && sudo apt update && sudo apt upgrade"
@@ -11,12 +13,9 @@ alias update="sudo apt autoremove && sudo apt update && sudo apt upgrade"
 # Memory and disk management
 alias df="df -Tha --total"
 alias du="du -hs"
-alias free="free -mt"
+alias free="free -gt"
 
 # Process and activities
 alias ps="ps auxf"
 alias psg="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias top="htop"
-
-# Miscellaneous
-alias codetime="clock.py code"
