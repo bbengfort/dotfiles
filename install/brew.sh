@@ -1,4 +1,9 @@
 # Check to ensure we can install Homebrew
+if ! is-macos; then
+  echo "Skipped: Homebrew (not on OS X)"
+  return
+fi
+
 if ! is-macos -o ! is-executable ruby -o ! is-executable curl -o ! is-executable git; then
   echo "Skipped: Homebrew (missing: ruby, curl and/or git)"
   return

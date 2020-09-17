@@ -1,5 +1,5 @@
 if ! is-macos -o ! is-executable brew; then
-  echo "Skipped: Bash 4"
+  echo "Skipped: Bash 4 (not on OS X)"
   return
 fi
 

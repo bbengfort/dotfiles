@@ -1,6 +1,6 @@
 # Check to ensure we can install Homebrew
 if ! is-linux; then
-  echo "Skipped: apt-get install"
+  echo "Skipped: apt install"
   return
 fi
 
@@ -8,8 +8,8 @@ fi
 sudo add-apt-repository ppa:aacebedo/fasd
 
 # Update and upgrade everything
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt update
+sudo apt upgrade
 
 # Install packages
 apps=(
@@ -21,6 +21,7 @@ apps=(
   jq
   shellcheck
   tree
+  curl
 )
 
-sudo apt-get install "${apps[@]}"
+sudo apt install "${apps[@]}"

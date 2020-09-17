@@ -25,7 +25,7 @@ sub_update () {
   fi
 
   if is-linux; then
-    sudo apt-get autoremove && sudo apt-get update && sudo apt-get upgrade
+    sudo apt autoremove && sudo apt update && sudo apt upgrade
   fi
 }
 
@@ -37,15 +37,15 @@ sub_clean() {
   fi
 
   if is-linux; then
-    sudo apt-get autoremove
-    sudo apt-get clean
+    sudo apt autoremove
+    sudo apt clean
     echo "Ubuntu package manager caches cleaned"
   fi
 }
 
 sub_edit () {
-  if is-executable atom; then
-    sh -c "atom $DOTFILES_DIR"
+  if is-executable code; then
+    sh -c "code $DOTFILES_DIR"
   else
     echo "no editor available, edit files in $DOTFILES_DIR"
   fi
