@@ -77,6 +77,8 @@ This section contains a (possibly not up-to-date) description of the tools insta
 
 This section is currently a work in progress.
 
+Currently exploring [Gnome → macOS Keyboard Remap](https://github.com/petrstepanov/gnome-macos-remap) to make keybindings a bit easier when switching back and forth.
+
 ## Credits/Resources
 
 - [dotfiles community](https://dotfiles.github.io/)
