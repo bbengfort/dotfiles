@@ -21,8 +21,9 @@ ln -sfv "$DOTFILES_DIR/runcom/.vimrc" ~
 ln -sfv "$DOTFILES_DIR/runcom/.tmux.conf" ~
 ln -sfv "$DOTFILES_DIR/git/.gitconfig" ~
 ln -sfv "$DOTFILES_DIR/git/.gitignore_global" ~
-ln -sfv "$DOTFILES_DIR/git/godiff.sh" ~/bin
-ln -sfvd "$DOTFILES_DIR/vim" ~/.vim
+ln -sfv "$DOTFILES_DIR/git/.git-completion.bash" ~
+ln -sfv "$DOTFILES_DIR/git/godiff.sh" "~/bin"
+ln -sfv "$DOTFILES_DIR/vim" "~/.vim"
 
 # Package managers & packages
 . "$DOTFILES_DIR/install/brew.sh"

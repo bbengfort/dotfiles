@@ -7,3 +7,7 @@ if is-executable brew && [ -f "$BASH_COMPLETION" ]; then
 fi
 
 unset BREW_PREFIX BASH_COMPLETION
+
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi

@@ -21,7 +21,7 @@ alias logoff="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resou
 
 # Miscelaneous
 alias ql="qlmanage -p "$@" >& /dev/null"  # Quick-look preview files
-alias codetime="clock.py code | pbcopy"   # Copy timestamp to clipboard
+alias codetime="clock -c code"   # Copy timestamp to clipboard
 alias cpwd="pwd|tr -d '\n'|pbcopy"        # Copy pwd to clipboard
 
 # Recursively remove Apple meta files

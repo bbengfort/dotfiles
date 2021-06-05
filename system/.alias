@@ -35,6 +35,12 @@ alias ipl="localip"
 # Miscellaneous
 alias quit="exit"
 
+# Kubectl
+alias kgp="kubectl get pods"
+alias kgs="kubectl get svc"
+alias klog="kubectl logs"
+alias kns="kubectl get namespaces"
+
 # Move to functions?
 alias get_python_lib="python -c 'from distutils.sysconfig import get_python_lib; print(get_python_lib());'"
 alias pytzg="python -c 'import pytz; print(\"\n\".join(pytz.common_timezones));' | grep -i"
