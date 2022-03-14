@@ -9,9 +9,7 @@ brew tap caskroom/fonts
 
 # Install packages
 apps=(
-  adobe-creative-cloud
   arq
-  atom
   font-courier-prime
   dropbox
   google-backup-and-sync
@@ -35,4 +33,4 @@ brew cask install "${apps[@]}"
 
 # Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
 # Note these currently break the ql function (https://github.com/toland/qlmarkdown/issues/79)
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook suspicious-package quicklookase qlvideo
+# brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlimagesize webpquicklook suspicious-package quicklookase qlvideo

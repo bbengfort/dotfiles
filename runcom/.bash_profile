@@ -61,3 +61,5 @@ unset READLINK CURRENT_SCRIPT SCRIPT_PATH DOTFILE EXTRAFILE
 # Export
 export DOTFILES_DIR DOTFILES_EXTRA_DIR
 
+
+complete -C /usr/local/bin/terraform terraform

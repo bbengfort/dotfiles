@@ -1,10 +1,10 @@
 if ! is-macos -o ! is-executable brew; then
-  echo "Skipped: Bash 4 (not on OS X)"
+  echo "Skipped: Bash 5 (not on OS X)"
   return
 fi
 
-if [ $BASH_VERSINFO == "4" ]; then
-    echo "Bash 4 alredy installed"
+if [ $BASH_VERSINFO == "5" ]; then
+    echo "Bash 5 already installed"
     return
  fi
 

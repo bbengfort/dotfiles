@@ -36,10 +36,12 @@ alias ipl="localip"
 alias quit="exit"
 
 # Kubectl
-alias kgp="kubectl get pods"
-alias kgs="kubectl get svc"
-alias klog="kubectl logs"
-alias kns="kubectl get namespaces"
+alias kubegp="kubectl get pods"
+alias kubegs="kubectl get svc"
+alias kubelog="kubectl logs"
+alias kubens="kubectl get namespaces"
+alias kubectx="kubectl config current-context"
+alias kubeswitch="kubectl config use-context"
 
 # Move to functions?
 alias get_python_lib="python -c 'from distutils.sysconfig import get_python_lib; print(get_python_lib());'"
