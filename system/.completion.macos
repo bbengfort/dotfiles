@@ -11,3 +11,6 @@ unset BREW_PREFIX BASH_COMPLETION
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+
+# Add terraform completion
+complete -C /usr/local/bin/terraform terraform

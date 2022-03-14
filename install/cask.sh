@@ -16,6 +16,7 @@ apps=(
   google-chrome
   istat-menus
   iterm2
+  kaleidoscope
   postgres
   postico
   signal

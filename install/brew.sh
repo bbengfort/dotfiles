@@ -22,15 +22,15 @@ brew upgrade
 
 # Install packages
 apps=(
-  bash-completion2
+  bash-completion@2
   coreutils
   dockutil
   eralchemy
   fasd
   git
   git-extras
-  gnu-sed --with-default-names
-  grep --with-default-names
+  gnu-sed
+  grep
   go
   imagemagick
   jq
