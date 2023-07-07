@@ -22,27 +22,29 @@
 [push]
 	default = simple
 	followTags = true
+	autoSetupRemote = true
 
 [help]
 	autocorrect = 1
 
 [diff]
-    tool = Kaleidoscope
+	tool = Kaleidoscope
 
 [difftool "Kaleidoscope"]
-    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
 [difftool]
-    prompt = false
+	prompt = false
 
 [merge]
-    tool = Kaleidoscope
+	tool = Kaleidoscope
 
 [mergetool "Kaleidoscope"]
-    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" \"$REMOTE\"
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 
+	trustExitCode = true
 [mergetool]
-    prompt = false
+	prompt = false
 
 [filter "media"]
 	required = true
