@@ -42,6 +42,7 @@ apps=(
   tree
   wifi-password
   tmux
+  btop
 )
 
 brew install "${apps[@]}"
